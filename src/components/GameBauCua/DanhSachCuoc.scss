@@ -1,0 +1,26 @@
+.tien {
+  $size: 65px;
+
+  position: relative;
+  border: 3px solid green;
+  border-radius: 50%;
+  height: $size;
+  width: $size;
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    color: green;
+  }
+
+  &.active {
+    border: 3px solid red;
+    span {
+      color: red;
+      font-weight: bold;
+    }
+  }
+}
