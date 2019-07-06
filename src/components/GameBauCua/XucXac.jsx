@@ -17,11 +17,18 @@ class XucXac extends Component {
         return (
             <div className='container'>
                 <div className='row align-items-center'>
-                    <div className='col-2'>
+                    <div className='col-2 d-flex'>
                         <button 
                             className='btn btn-success'
-                            onClick = { () => this.props.choiGame() }>
+                            onClick = { () => this.props.choiGame() }
+                            style={{fontSize: 20, padding: '5px 20px', marginRight: 10}}>
                             Chơi
+                        </button>
+                        <button 
+                            className='btn btn-danger'
+                            onClick = { () => this.props.huyTien() }
+                            style={{fontSize: 20, padding: '5px 20px'}}>
+                            Hủy
                         </button>
                     </div>
                     <div className='col-8'>
@@ -53,6 +60,11 @@ const mapToProps =(dispatch) => {
         choiGame: () => {
             dispatch({
                 type: 'CHOI_GAME'
+            })
+        },
+        huyTien: () => {
+            dispatch({
+                type:'HUY_CUOC',
             })
         }
     }

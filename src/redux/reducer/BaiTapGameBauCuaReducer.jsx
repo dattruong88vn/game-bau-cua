@@ -32,7 +32,7 @@ const BaiTapGameBauCuaReducer = (state = stateDefault, action) => {
             const updateDanhSachCuoc = [...state.danhSachCuoc];
             let updateTongTien = state.tongTien;
             let index = updateDanhSachCuoc.findIndex(item => item.ma === action.ma);
-            if (updateTongTien > state.tienCuoc) {
+            if (updateTongTien >= state.tienCuoc) {
                 if (index !== -1) {
                     updateDanhSachCuoc[index].tienCuoc += state.tienCuoc;
                 }
@@ -104,6 +104,24 @@ const BaiTapGameBauCuaReducer = (state = stateDefault, action) => {
             state.giaTriTienCuoc = mangGiaTriCuocUpdate;
             
             return { ...state};
+        }
+        case 'HUY_CUOC': {
+            let tongTienUpdate = state.tongTien;
+
+            state.danhSachCuoc.map(item => {
+                tongTienUpdate += item.tienCuoc;
+            });
+
+            state.danhSachCuoc = [
+                { ma: 'nai', img: './img/nai.PNG', tienCuoc: 0 },
+                { ma: 'bau', img: './img/bau.PNG', tienCuoc: 0 },
+                { ma: 'ga', img: './img/ga.PNG', tienCuoc: 0 },
+                { ma: 'ca', img: './img/ca.PNG', tienCuoc: 0 },
+                { ma: 'cua', img: './img/cua.PNG', tienCuoc: 0 },
+                { ma: 'tom', img: './img/tom.PNG', tienCuoc: 0 },
+            ];
+            state.tongTien = tongTienUpdate;
+            return {...state};
         }
     }
     return { ...state};

@@ -6,7 +6,6 @@ class DanhSachCuoc extends Component {
 
     rendermangGiaTriCuoc = () => {
         return this.props.giaTriTienCuoc.map((item, index) => {
-            console.log(item.type);
             return (
                 <div
                     className={item.type}
@@ -24,7 +23,7 @@ class DanhSachCuoc extends Component {
                 <div className='col-4 py-2' key={index}>
                     <div className="card text-center">
                         <h4 className="card-title">{item.ma}</h4>
-                        <img className="card-img-top" src={item.img} style={{ width: 150, height: 150 }} />
+                        <img className="card-img-top mx-auto" src={item.img} style={{ width: 120, height: 120 }} />
                         <button
                             className="btn btn-primary px-4 mt-2 w-100"
                             onClick={() => this.props.datCuoc(item.ma)}>
@@ -39,10 +38,12 @@ class DanhSachCuoc extends Component {
     render() {
         return (
             <div className='row m-auto'>
-                <div className='col-2 d-flex flex-column align-items-center'>
-                    {this.rendermangGiaTriCuoc()}
+                <div className='col-3'>
+                    <div className='w-75 d-flex flex-wrap'>
+                        {this.rendermangGiaTriCuoc()}
+                    </div>
                 </div>
-                <div className='col-10'>
+                <div className='col-9'>
                     <div className='row'>
                         {this.renderDanhSachCuoc()}
                     </div>
