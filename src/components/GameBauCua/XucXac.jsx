@@ -39,7 +39,7 @@ class XucXac extends Component {
                     <div className='col-2'>
                         <h5>
                             Tiền: 
-                            <span style={{color:'red'}}> {this.props.tongTien}</span> 
+                            <span style={{color:'red'}}> {this.props.tongTien.toLocaleString()}</span> 
                         </h5>
                     </div>
                 </div>

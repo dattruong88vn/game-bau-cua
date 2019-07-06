@@ -11,7 +11,7 @@ class DanhSachCuoc extends Component {
                     className={item.type}
                     key={index} style={{ cursor: 'pointer' }}
                     onClick={() => this.props.chonTien(item)}>
-                    <span >{item.value}</span>
+                    <span >{item.name}</span>
                 </div>
             )
         })
@@ -27,7 +27,7 @@ class DanhSachCuoc extends Component {
                         <button
                             className="btn btn-primary px-4 mt-2 w-100"
                             onClick={() => this.props.datCuoc(item.ma)}>
-                            {item.tienCuoc}
+                            {(item.tienCuoc.toLocaleString())}
                         </button>
                     </div>
                 </div>
